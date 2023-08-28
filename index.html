@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ลูกเต๋าทอย</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  #dice-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  .dice {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>ทอยลูกเต๋า</h1>
+ 
+<div id="dice-container">
+  <div class="dice"><img style="width: 100px;" src="./dice-1.svg" alt="ลูกเต๋า" id="dice1"></div>
+  <div class="dice"><img style="width: 100px;" src="./dice-2.svg" alt="ลูกเต๋า" id="dice2"></div>
+  <div class="dice"><img style="width: 100px;" src="./dice-3.svg" alt="ลูกเต๋า" id="dice3"></div>
+</div>
+
+<button type="button" class="btn btn-dark" id="rollButton">ทอย</button>
+
+<script>
+  const diceElements = [document.getElementById("dice1"), document.getElementById("dice2"), document.getElementById("dice3")];
+  const rollButton = document.getElementById("rollButton");
+  rollButton.addEventListener('click',rollDice);
+
+  function rollDice() {
+    diceElements.forEach(dice => {
+      const randomValue = Math.floor(Math.random() * 6) + 1;
+      dice.src = './dice-' +  randomValue +'.svg';
+      console.log('<img src="./dice-' +  randomValue +'.svg" alt="ลูกเต๋า">');
+    });
+  }
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
